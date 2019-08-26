@@ -17,7 +17,7 @@ public class RandomPathGenerating : MonoBehaviour
     public NavMeshSurface surface;
 
     private float lastStart = 0;  
-    int i = 1;
+    int i = 0;
 
     BoxCollider pathLengthCollider;
     void Start()
@@ -51,7 +51,7 @@ public class RandomPathGenerating : MonoBehaviour
             Debug.Log("hi" + i);
             GameObject path = Instantiate(paths[randomnums.list[i]],
                 new Vector3(0, 0, lastStart), paths[randomnums.list[i]].transform.rotation);
-            lastStart += paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *2 - 2; // Add the size of the last placed path
+            lastStart += paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *2 - 3; // Add the size of the last placed path
             //path.transform.Rotate(new Vector3(-90, 90, 0));
             surface.BuildNavMesh();
             i++;
@@ -59,7 +59,7 @@ public class RandomPathGenerating : MonoBehaviour
         }
         if (i == randomnums.max)
         {
-            i = 1;
+            i = 0;
             ReferPaths();
         }
         
