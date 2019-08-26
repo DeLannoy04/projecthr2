@@ -9,10 +9,11 @@ public class agentAi : MonoBehaviour
     
 	[Header("Ai settings")]
     [HideInInspector]
-	public NavMeshAgent agent;
-	public Transform target;
+	public NavMeshAgent agent;	
 	public GameObject weapon;
-	public float combatTime = 0.1f;
+    [HideInInspector]
+    public Transform target;
+    public float combatTime = 0.1f;
 
 	private float nextTimeToAttack = 0.0f;
 
@@ -47,7 +48,7 @@ public class agentAi : MonoBehaviour
 
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, target.position) < 15 && Time.time >= nextTimeToAttack)
+        if (Vector3.Distance(transform.position, target.position) < 15 && Time.time >= nextTimeToAttack && !isAttacking)
         {
             nextTimeToAttack = Time.time + combatTime;
             GameObject go = Instantiate(weapon, transform.position + new Vector3(0, 0, 1), Quaternion.identity);

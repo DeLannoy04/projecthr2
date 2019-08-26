@@ -45,14 +45,13 @@ public class RandomPathGenerating : MonoBehaviour
     public void PathLoading()
     {
         
-        if (lastStart - paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *4 <= player.transform.position.z)// if the player reaches the last generated path
+        if (lastStart - paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *5 <= player.transform.position.z)// if the player reaches the last generated path
         {
             
             Debug.Log("hi" + i);
             GameObject path = Instantiate(paths[randomnums.list[i]],
                 new Vector3(0, 0, lastStart), paths[randomnums.list[i]].transform.rotation);
-            lastStart += paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *2 - 3; // Add the size of the last placed path
-            //path.transform.Rotate(new Vector3(-90, 90, 0));
+            lastStart += paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *2 - 3; // Add the size of the last placed path           
             surface.BuildNavMesh();
             i++;
             
