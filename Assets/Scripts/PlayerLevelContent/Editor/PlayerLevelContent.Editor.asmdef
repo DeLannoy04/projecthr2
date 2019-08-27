@@ -1,0 +1,17 @@
+{
+    "name": "PlayerLevelContent.Editor",
+    "references": [
+        "GUID:aff9c705cc37efd458bdd35f6c20eead"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
