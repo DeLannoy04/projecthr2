@@ -14,7 +14,6 @@ public class RandomPathGenerating : MonoBehaviour
     [Header("References")]
     public GameObject player;
     public organizatedRandomNumber randomnums;
-    public NavMeshSurface surface;
 
     private float lastStart = 0;  
     int i = 0;
@@ -52,7 +51,6 @@ public class RandomPathGenerating : MonoBehaviour
             GameObject path = Instantiate(paths[randomnums.list[i]],
                 new Vector3(0, 0, lastStart), paths[randomnums.list[i]].transform.rotation);
             lastStart += paths[randomnums.list[i]].GetComponent<Transform>().localScale.x *2 - 3; // Add the size of the last placed path           
-            surface.BuildNavMesh();
             i++;
             
         }

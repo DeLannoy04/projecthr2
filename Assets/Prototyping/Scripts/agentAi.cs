@@ -13,6 +13,7 @@ public class agentAi : MonoBehaviour
 	public GameObject weapon;
     [HideInInspector]
     public Transform target;
+    NavMeshSurface navMeshSurf;
     public float combatTime = 0.1f;
 
 	private float nextTimeToAttack = 0.0f;
@@ -25,7 +26,9 @@ public class agentAi : MonoBehaviour
 		agent = GetComponent<NavMeshAgent>();
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        
+
+        navMeshSurf = GameObject.Find("NavMesh").GetComponent<NavMeshSurface>();
+        navMeshSurf.BuildNavMesh();
 	}
 
 	void Update()
