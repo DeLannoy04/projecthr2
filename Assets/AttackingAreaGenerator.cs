@@ -14,7 +14,8 @@ public class AttackingAreaGenerator : MonoBehaviour
     Vector3[] vertices;
     int[] triangles;
     Mesh mesh;
-	bool playerInAttackingArea = false;
+
+	public bool playerInAttackingArea = false;
     // Welcome Nandu :)
     void Start()
     {
@@ -79,14 +80,17 @@ public class AttackingAreaGenerator : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerInAttackingArea = true;           
+            playerInAttackingArea = true;
+            agentAiSystem.agent.isStopped = true;
         }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            transform.LookAt(agentAiSystem.target);
+        {          
+            Vector3 lookAtRotation = Quaternion.LookRotation(agentAiSystem.target.position - transform.position).eulerAngles;
+            transform.rotation = Quaternion.Euler(Vector3.Scale(lookAtRotation,agentAiSystem.rotationMask));
+            transform.parent.rotation = Quaternion.Euler(Vector3.Scale(lookAtRotation, agentAiSystem.rotationMask));
         }
     }
     private void OnTriggerExit(Collider other)
@@ -97,8 +101,7 @@ public class AttackingAreaGenerator : MonoBehaviour
         }
     }
 
-    
-
+   
 	
 
 	public bool playerIsAttackable()

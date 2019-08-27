@@ -11,9 +11,11 @@ public class agentAi : MonoBehaviour
     [HideInInspector]
 	public NavMeshAgent agent;	
 	public GameObject weapon;
+    public Vector3 rotationMask;
     [HideInInspector]
     public Transform target;
     NavMeshSurface navMeshSurf;
+    AttackingAreaGenerator attackingAreaGenerator;
     public float combatTime = 0.1f;
 
 	private float nextTimeToAttack = 0.0f;
@@ -24,7 +26,6 @@ public class agentAi : MonoBehaviour
 	private void Start()
 	{
 		agent = GetComponent<NavMeshAgent>();
-
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         navMeshSurf = GameObject.Find("NavMesh").GetComponent<NavMeshSurface>();
@@ -33,9 +34,9 @@ public class agentAi : MonoBehaviour
 
 	void Update()
     {
-		agent.SetDestination(target.position);
+        agent.SetDestination(target.position);
 
-		if (target.position.z >= transform.position.z)
+        if (target.position.z >= transform.position.z)
 			Destroy(gameObject);
        if(GetComponentInChildren<AttackingAreaGenerator>().playerIsAttackable())
 		{
@@ -51,7 +52,7 @@ public class agentAi : MonoBehaviour
 
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, target.position) < 15 && Time.time >= nextTimeToAttack && !isAttacking)
+        if (Time.time >= nextTimeToAttack && !isAttacking)
         {
             nextTimeToAttack = Time.time + combatTime;
             GameObject go = Instantiate(weapon, transform.position + new Vector3(0, 0, 1), Quaternion.identity);

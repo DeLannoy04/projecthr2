@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515143361355160437}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.32}
   m_Children:
   - {fileID: 2797013921808553996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &5487204379811402576
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   weapon: {fileID: -927199367670048503, guid: 0330cb69c9ef6704180e636597b8cff3, type: 3}
+  rotationMask: {x: 0, y: 1, z: 0}
   target: {fileID: 0}
   combatTime: 0.1
 --- !u!195 &6664691349290029479
@@ -118,7 +119,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3.2594748
-  m_BaseOffset: 1.6297374
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &5640554445075315806
@@ -193,6 +194,11 @@ PrefabInstance:
       propertyPath: agentAiSystem
       value: 
       objectReference: {fileID: 8484881064513106065}
+    - target: {fileID: 7536698340886340693, guid: 914b7e98ca636b24abd0a87386a36cbb,
+        type: 3}
+      propertyPath: length
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 914b7e98ca636b24abd0a87386a36cbb, type: 3}
 --- !u!4 &2797013921808553996 stripped
