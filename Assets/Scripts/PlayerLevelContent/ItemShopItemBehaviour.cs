@@ -5,6 +5,7 @@ namespace PlayerLevelContent
 {
     public class ItemShopItemBehaviour : MonoBehaviour
     {
-        public TextMeshProUGUI text;
+        public TextMeshProUGUI label;
+        public TextMeshProUGUI requiredLevel;
     }
 }

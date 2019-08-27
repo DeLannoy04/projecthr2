@@ -432,6 +432,7 @@ MonoBehaviour:
     type: 3}
   unlockables:
   - {fileID: 11400000, guid: eb7a19fe06742f24da0eb1c1d3b41a8f, type: 2}
+  - {fileID: 11400000, guid: 9e8abd856200ca74ca969e401a1be669, type: 2}
 --- !u!114 &378000182
 MonoBehaviour:
   m_ObjectHideFlags: 0

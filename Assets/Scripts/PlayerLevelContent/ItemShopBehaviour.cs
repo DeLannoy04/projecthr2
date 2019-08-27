@@ -15,7 +15,8 @@ namespace PlayerLevelContent
             {
                 var go = Instantiate(unlockablePrefab, parent);
                 var item = go.GetComponent<ItemShopItemBehaviour>();
-                item.text.text = unlockable.name;
+                item.label.text = unlockable.name;
+                item.requiredLevel.text = unlockable.requiredLevel.ToString();
             }
         }
     }
