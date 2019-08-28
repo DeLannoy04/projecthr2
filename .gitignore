@@ -25,6 +25,7 @@ ExportedObj/
 *.pdb
 *.opendb
 *.blend1
+*.blend1.meta
 
 # remove this as soon as needed
 Assets/Plugins*
