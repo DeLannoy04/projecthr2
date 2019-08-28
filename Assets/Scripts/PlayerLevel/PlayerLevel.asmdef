@@ -1,3 +1,15 @@
-﻿{
-	"name": "PlayerLevel"
+{
+    "name": "PlayerLevel",
+    "references": [
+        "GUID:b0610e1950a407e47b02fb8c360c36cf"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
 }

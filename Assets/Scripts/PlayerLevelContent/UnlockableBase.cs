@@ -6,5 +6,6 @@ namespace PlayerLevelContent
     {
         public int requiredLevel = 1;
         public new string name;
+        public int price;
     }
 }

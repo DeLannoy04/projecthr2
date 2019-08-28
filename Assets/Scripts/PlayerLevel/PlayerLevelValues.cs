@@ -1,10 +1,12 @@
 using System;
+using UnityEngine;
 
 namespace PlayerLevel
 {
     [Serializable]
     public struct PlayerLevelValues
     {
-        public int experience;
+        [ReadOnly] [SerializeField] internal int experience;
+        [ReadOnly] [SerializeField] internal int coins;
     }
 }

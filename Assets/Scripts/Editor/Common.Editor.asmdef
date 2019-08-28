@@ -1,7 +1,7 @@
 {
-    "name": "PlayerLevelContent.Editor",
+    "name": "PlayerLevel.Editor",
     "references": [
-        "GUID:aff9c705cc37efd458bdd35f6c20eead"
+        "GUID:b0610e1950a407e47b02fb8c360c36cf"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
