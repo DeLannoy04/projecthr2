@@ -1,12 +1,12 @@
 using System;
+using Extensions;
 using UnityEngine;
 
 namespace PlayerLevel
 {
     public class PlayerLevelBehaviour : MonoBehaviour
     {
-        [SerializeField] private PlayerLevelValues values;
-        
+        public PlayerLevelValues values;
         public PlayerLevelSettings settings;
 
         /// <summary>
@@ -18,8 +18,22 @@ namespace PlayerLevel
         /// Is the current level the maximum according to <see cref="settings"/>?
         /// </summary>
         public bool IsMaxLevel =>
-            Level == (int) settings.experiencePerLevel.keys[settings.experiencePerLevel.keys.Length - 1].time;
+            Level == (int) settings.experiencePerLevel.LastTime();
 
+        public int Coins
+        {
+            get => values.coins;
+            set
+            {
+                var before = values.coins;
+                values.coins = Mathf.Clamp(value, 0, settings.maxCoins);
+                if (before != values.coins)
+                {
+                    CoinsChanged?.Invoke(null, (before, values.coins));
+                }
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the experience of the player.
         /// </summary>
@@ -30,10 +44,10 @@ namespace PlayerLevel
             {
                 var expBefore = values.experience;
                 var levelBefore = Level;
-                values.experience = value;
-                if (expBefore != value)
+                values.experience = Mathf.Clamp(value, 0, (int) settings.experiencePerLevel.LastValue());
+                if (expBefore != values.experience)
                 {
-                    ExperienceChanged?.Invoke(this, (expBefore, value));
+                    ExperienceChanged?.Invoke(this, (expBefore, values.experience));
                 }
 
                 if (levelBefore != Level)
@@ -52,6 +66,9 @@ namespace PlayerLevel
         /// Triggered when <see cref="Experience"/> changed.
         /// </summary>
         public event EventHandler<(int Before, int After)> ExperienceChanged;
+        
+        public event EventHandler<(int Before, int After)> CoinsChanged; 
+
 
         private int GetLevel()
         {

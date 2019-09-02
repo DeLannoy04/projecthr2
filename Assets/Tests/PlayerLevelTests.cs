@@ -39,9 +39,9 @@ namespace Tests
             _comp.Experience = 15;
             Assert.AreEqual(2, _comp.Level);
 
-            // allow overflow (save experience for future levels)
+            // dont allow overflow (dont farm experience for future levels)
             // TODO is this as intended?
-            Assert.AreEqual(15, _comp.Experience);
+            Assert.AreEqual(10, _comp.Experience);
         }
 
         [Test]
